@@ -12,7 +12,6 @@ class TestGridPrinting(unittest.TestCase):
     def test_grid_print_3_3(self):
         grid = Grid(3, 3, 0)
 
-        grid.cells[2][1].reveal(0)
         self.assertEqual(
             str(grid),
             "\n".join(
@@ -22,7 +21,22 @@ class TestGridPrinting(unittest.TestCase):
                     "+-+-+-+",
                     "|?|?|?|",
                     "+-+-+-+",
-                    "|?| |?|",
+                    "|?|?|?|",
+                    "+-+-+-+",
+                ]
+            ),
+        )
+        grid.cells[2][1].reveal()
+        self.assertEqual(
+            str(grid),
+            "\n".join(
+                [
+                    "+-+-+-+",
+                    "| | | |",
+                    "+-+-+-+",
+                    "| | | |",
+                    "+-+-+-+",
+                    "| | | |",
                     "+-+-+-+",
                 ]
             ),
